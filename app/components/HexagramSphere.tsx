@@ -55,15 +55,13 @@ function CameraAdjuster() {
 }
 
 // 单个卦象组件，确保面向球心
-function HexagramText({ position, text, index }: { position: [number, number, number], text: string, index: number }) {
+function HexagramText({ position, text }: { position: [number, number, number], text: string }) {
   const textRef = useRef<THREE.Mesh>(null);
   
   useFrame(() => {
     if (textRef.current) {
       // 计算从卦象位置指向球心的方向向量
       const direction = new THREE.Vector3(0, 0, 0).sub(new THREE.Vector3(...position));
-      // 创建一个向上的向量
-      const up = new THREE.Vector3(0, 1, 0);
       // 创建一个四元数，使z轴指向球心
       const quaternion = new THREE.Quaternion().setFromUnitVectors(
         new THREE.Vector3(0, 0, 1),
@@ -190,7 +188,6 @@ function HexagramGlobe() {
           key={`hexagram-${index}`}
           position={[positions[index].x, positions[index].y, positions[index].z]}
           text={hexagram}
-          index={index}
         />
       ))}
       

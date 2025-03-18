@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ReactMarkdown from 'react-markdown';
-import { useRouter } from 'next/navigation';
 import { FaArrowLeft } from 'react-icons/fa';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { BsArrowReturnLeft } from 'react-icons/bs';
@@ -265,7 +264,6 @@ interface Result {
 }
 
 export default function BuPage() {
-  const router = useRouter();
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const [matter, setMatter] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -482,7 +480,7 @@ export default function BuPage() {
             </ButtonContainer>
           )}
           
-          <HexagramDisplay lines={lines} currentLine={currentLine} />
+          <HexagramDisplay lines={lines} />
           
           {currentLine === 6 && !result && (
             <LoadingContainer

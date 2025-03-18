@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 
 interface HexagramDisplayProps {
   lines: string[];
-  currentLine: number;
 }
 
 const HexagramContainer = styled.div`
@@ -45,7 +44,7 @@ const YinLineSegment = styled.div`
   border-radius: 3px;
 `;
 
-const HexagramDisplay = ({ lines, currentLine }: HexagramDisplayProps) => {
+export default function HexagramDisplay({ lines }: HexagramDisplayProps) {
   return (
     <HexagramContainer>
       {lines.map((type, index) => (
@@ -62,6 +61,4 @@ const HexagramDisplay = ({ lines, currentLine }: HexagramDisplayProps) => {
       ))}
     </HexagramContainer>
   );
-};
-
-export default HexagramDisplay; 
+} 

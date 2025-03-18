@@ -38,9 +38,6 @@ const generateBrushStroke = (startX: number, startY: number, length: number, dir
   
   // 创建更圆滑的毛笔路径
   for (let i = 0; i < pointCount; i++) {
-    // 进度比例
-    const progress = i / (pointCount - 1);
-    
     // 减小方向变化，使线条更圆滑
     const angleVariation = (Math.random() - 0.5) * 0.3;
     const currentAngle = baseAngle + angleVariation;
